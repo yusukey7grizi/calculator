@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
   },
   result: {
+    height: "45px",
     fontFamily: "'Righteous', cursive",
     backgroundColor: "white",
     borderRadius: "5px",
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "right",
     margin: "auto",
     color: "black",
-    fontSize: "30px",
   },
   buttonContainer: { width: "90%", margin: "auto", marginTop: "-10px" },
 
@@ -57,7 +57,7 @@ const Calculator = () => {
   const onClickHandler = (e) => {
     if ((Result === "Error") | (Result === "0")) {
       setResult(e.currentTarget.name);
-    } else if (Result.length > 14) {
+    } else if (Result.length >= 14) {
       return false;
     } else {
       setResult(Result.concat(e.currentTarget.name));
@@ -66,6 +66,7 @@ const Calculator = () => {
   const Calculator = () => {
     try {
       const value = eval(Result).toString();
+
       setResult(value);
     } catch {
       setResult("Error");
@@ -75,7 +76,12 @@ const Calculator = () => {
   return (
     <Grid className={classes.wrapper}>
       {" "}
-      <Typography className={classes.result}>
+      <Typography
+        style={{
+          fontSize: Result.length > 14 ? "25px" : "30px",
+        }}
+        className={classes.result}
+      >
         {Result ? Result : "0"}
       </Typography>
       <Grid className={classes.buttonContainer}>
