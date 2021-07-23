@@ -78,7 +78,7 @@ const Calculator = () => {
       {" "}
       <Typography
         style={{
-          fontSize: Result.length > 14 ? "25px" : "30px",
+          fontSize: Result.length > 14 ? "20px" : "30px",
         }}
         className={classes.result}
       >
