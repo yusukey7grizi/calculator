@@ -66,8 +66,11 @@ const Calculator = () => {
   const Calculator = () => {
     try {
       const value = eval(Result).toString();
-
-      setResult(value);
+      if (Result === "Error") {
+        return false;
+      } else {
+        setResult(value);
+      }
     } catch {
       setResult("Error");
     }
