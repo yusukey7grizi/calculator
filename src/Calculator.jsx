@@ -58,7 +58,7 @@ const Calculator = () => {
     if ((Result === "Error") | (Result === "0")) {
       setResult(e.currentTarget.name);
     } else if (Result.length >= 14) {
-      return false;
+      alert("Too many digits");
     } else {
       setResult(Result.concat(e.currentTarget.name));
     }
